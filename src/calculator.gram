@@ -1,0 +1,57 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Grammar for Speech Calculator
+ */
+
+grammar calculator;
+
+public <everything>=<simpleNumberOp>|<numbersPowered>|<triplets>|<constantsPowered>;
+<triplets>=(<beginners>)(<operation>)(<beginners>)(<operation>)(<beginners>);
+<simpleNumberOp>=<number><operation><number>;
+
+<number> = <number1> | <number2>;
+
+<operation> = plus | minus | times | over;
+
+<numbersPowered>=(<number>)(<powerName>) | (<number>)(power)(<digit3>);
+<ePowered>=(<Expon>)(<powerName>) | (<Expon>)(power)(<digit3>);
+
+<constantsPowered>=(<constants>)(<powerName>)|(<constants>)(power)(<digit3>); 
+<beginners>=<constants>|<number>;
+<teen> = 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19;
+<tens> = 2tens | 3tens | 4tens | 5tens | 6tens | 7tens | 8tens | 9tens ;
+<digit> = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 ;
+<digit2> = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 ;
+<digit3>= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 ;
+<thousands> = thousand;
+<hundreds> = hundred;
+<and> = and;
+
+
+<constants>=<Expon>;
+
+<Expon>= exp;
+<powerName>=squared|cubed;
+<number1> = (<digit> <digit> <digit> <digit>) | (<digit> <digit> <digit>) |(<digit> <digit>) |(<digit>);
+<number2> = (<digit2> <thousands> <digit2> <hundreds> <and> <tens> <digit2>) |
+ 		    (<digit2> <thousands> <digit2> <hundreds> <and> <teen>) |
+ 		    (<digit2> <thousands> <digit2> <hundreds> <and> <digit2>) |
+ 		    (<digit2> <thousands> <and> <tens> <digit2>) |
+ 		    (<digit2> <hundreds> <and> <tens> <digit2>) |
+ 			(<digit2> <thousands> <digit2> <hundreds>) |
+ 			(<digit2> <thousands> <and> <teen>) |
+ 			(<digit2> <hundreds> <and> <tens>) |
+ 			(<digit2> <thousands> <and> <digit2>) |
+ 			(<digit2> <hundreds> <and> <digit2>) |
+ 			(<digit2> <thousands>) |
+ 			(<digit2> <hundreds>) |
+ 			(<tens> <digit2>) |
+ 			(<teen>)|
+ 			(<tens>);
+ 
+ 
+ 
+ 
+ 
+ 
